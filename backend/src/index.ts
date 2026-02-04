@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors"
 import authRoutes from "./routes/auth.routes";
 import balanceRoutes from "./routes/balance.routes";
+import userRoutes from "./routes/userinfo.routes";
 
 const app = express();
 app.use(cookieParser());
@@ -20,6 +21,7 @@ app.get("/", (req: Request, res: Response) => {
 app.use(express.json());
 app.use("/auth", authRoutes);
 app.use("/balance", balanceRoutes);
+app.use("/api", userRoutes);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));
